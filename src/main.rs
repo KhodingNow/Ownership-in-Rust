@@ -110,6 +110,19 @@ fn calculate_length(s: String) -> (String, usize) {
     (s, length)
 }
 
+// References and Borrowing in Rust - a referece is like a pointer in that its an address we can follow to access the data
+// stored at that address, that data is owned by some other variable. Unlike a pointer, a reference is guaranteed to pint to a valid value 
+// of a particular type for the life of that reference.
+
+// fn main() {
+        let s1 = String::from("hello");
+        let len = calculate_length(&s1);
+
+        println!("The length of '{s1}' is {ln}.");
+//}
+  fn calculate_length(s: &String) -> usize {
+        s.len()
+  }
 
 
 
