@@ -97,33 +97,52 @@ fn takes_and_gives_back(a_string: String) -> String { // a_string comes into
 // Rust does allow returning multiple values using a tuple
 
 // fn main() {
-    let s1 = String::from("hello");
+//    let s1 = String::from("hello");
 
-    let (s2, len) = calculate_length(s1);
+  //  let (s2, len) = calculate_length(s1);
 
-    println!("The length of '{s2}' is {len}.");
+//    println!("The length of '{s2}' is {len}.");
 //}
 
-fn calculate_length(s: String) -> (String, usize) {
-    let length = s.len(); // len() returns the length of a String
+//fn calculate_length(s: String) -> (String, usize) {
+//    let length = s.len(); // len() returns the length of a String
 
-    (s, length)
-}
+//    (s, length)
+//}
 
 // References and Borrowing in Rust - a referece is like a pointer in that its an address we can follow to access the data
 // stored at that address, that data is owned by some other variable. Unlike a pointer, a reference is guaranteed to pint to a valid value 
 // of a particular type for the life of that reference.
 
 // fn main() {
-        let s1 = String::from("hello");
+ /*        let s1 = String::from("hello");
         let len = calculate_length(&s1);
 
-        println!("The length of '{s1}' is {ln}.");
+        println!("The length of '{s1}' is {ln}."); */
 //}
   fn calculate_length(s: &String) -> usize {
-        s.len()
+        s.len() 
   }
 
+  // Dangling References - (dangling pointers are those who point to an invalid reference in memory)
+  // Rust ensures that a reference '&' will not allow data to go out of scope before the reference to the data does.
 
+  // fn main() {
+  //     let reference_to_nothing = dangle();
+  //}
+
+      // fn dangle() -> &String {
+      //   let s = String::from("hello");
+
+      //   &s
+      // }
+
+      // Solution to dangling
+
+      fn no_dangle() -> String {
+        let s = String::from("hello");
+
+        s
+      }
 
 }
